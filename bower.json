@@ -8,10 +8,9 @@
         "bootstrap-daterangepicker": "^2.1.25"
     },
     "main": [
-        "./src/views/pit-table.html",
-        "./src/scripts/angular-pit-table.options.js",
-        "./src/scripts/angular-pit-table.factory.js",
-        "./src/scripts/angular-pit-table.directive.js",
-        "./src/scripts/angular-pit-table.js"
+        "./src/angular-pit-daterangepicker.options.js",
+        "./src/angular-pit-daterangepicker.factory.js",
+        "./src/angular-pit-daterangepicker.directive.js",
+        "./src/angular-pit-daterangepicker.js"
     ]
 }
