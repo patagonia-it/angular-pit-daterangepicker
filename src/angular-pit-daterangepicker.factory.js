@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angular-pit-daterangepicker.factory', [])
-    .factory('PDrpParamsBuilder', pitDrpParamsBuilder);
+  .factory('PDrpParamsBuilder', pitDrpParamsBuilder);
 
 function pitDrpParamsBuilder(){
 

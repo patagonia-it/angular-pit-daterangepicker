@@ -8,11 +8,7 @@ function pitDaterangepicker(pitDaterangepickerOptions){
     restrict: 'A',
     require: '?ngModel',
     scope:{
-      pitDrpStart: '=',
-      pitDrpEnd: '=',
-      pitDrpMin: '=',
-      pitDrpMax: '=',
-      pitDrpClean: '='
+      pitDrpParams: '='
     },
     link: function postLink(scope, element, attrs) {
       var config = angular.copy(pitDaterangepickerOptions.config);
@@ -27,14 +23,14 @@ function pitDaterangepicker(pitDaterangepickerOptions){
         config.locale.format = 'DD-MMM-YYYY';
       }
 
-      if(angular.isDefined(scope.pitDrpMin)){
-        config.minDate = scope.pitDrpMin;
+      if(angular.isDefined(scope.pitDrpParams.min)){
+        config.minDate = scope.pitDrpParams.min;
       }
-      if(angular.isDefined(scope.pitDrpMax)){
-        config.maxDate = scope.pitDrpMax;
+      if(angular.isDefined(scope.pitDrpParams.max)){
+        config.maxDate = scope.pitDrpParams.max;
       }
 
-      if((angular.isDefined(scope.pitDrpClean) && scope.pitDrpClean) || (angular.isUndefined(scope.pitDrpStart) || angular.isUndefined(scope.pitDrpEnd))){
+      if((angular.isDefined(scope.pitDrpParams.clean) && scope.pitDrpParams.clean) || (angular.isUndefined(scope.pitDrpParams.start) || angular.isUndefined(scope.pitDrpParams.end))){
         config.autoUpdateInput = false;
 
         $(element).on('apply.daterangepicker', function(ev, picker) {
@@ -44,7 +40,6 @@ function pitDaterangepicker(pitDaterangepickerOptions){
           $(element).val('');
         });
       }
-
       $(element).daterangepicker(config);
     }
   };
