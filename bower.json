@@ -1,0 +1,17 @@
+{
+    "name": "angular-pit-daterangepicker",
+    "version": "1.0.0",
+    "dependencies": {
+        "angular": "1.6.4",
+        "jquery": "2.2.4",
+        "angular-moment": "1.0.1",
+        "bootstrap-daterangepicker": "^2.1.25"
+    },
+    "main": [
+        "./src/views/pit-table.html",
+        "./src/scripts/angular-pit-table.options.js",
+        "./src/scripts/angular-pit-table.factory.js",
+        "./src/scripts/angular-pit-table.directive.js",
+        "./src/scripts/angular-pit-table.js"
+    ]
+}
