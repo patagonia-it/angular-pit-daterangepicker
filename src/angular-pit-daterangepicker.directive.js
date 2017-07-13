@@ -6,11 +6,11 @@ angular.module('angular-pit-daterangepicker.directive', ['angular-pit-daterangep
 function pitDaterangepicker(pitDaterangepickerOptions){
   return {
     restrict: 'A',
-    require: '?ngModel',
+    require: 'ngModel',
     scope:{
       pitDrpParams: '='
     },
-    link: function postLink(scope, element, attrs) {
+    link: function postLink(scope, element, attrs, ngModel) {
       var config = angular.copy(pitDaterangepickerOptions.config);
 
       if(angular.isUndefined(config.locale)){
@@ -35,6 +35,12 @@ function pitDaterangepicker(pitDaterangepickerOptions){
 
         $(element).on('apply.daterangepicker', function(ev, picker) {
           $(element).val(picker.startDate.format(config.locale.format) + config.locale.separator + picker.endDate.format(config.locale.format));
+          scope.$apply(function(){
+            ngModel.$setViewValue({
+              start: picker.startDate.toISOString(),
+              end: picker.endDate.toISOString()
+            });
+          });
         });
         $(element).on('cancel.daterangepicker', function(ev, picker) {
           $(element).val('');
