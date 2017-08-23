@@ -44,6 +44,9 @@ function pitDaterangepicker(pitDaterangepickerOptions){
         });
         $(element).on('cancel.daterangepicker', function(ev, picker) {
           $(element).val('');
+          scope.$apply(function(){
+            ngModel.$setViewValue({});
+          });
         });
       }
       $(element).daterangepicker(config);
