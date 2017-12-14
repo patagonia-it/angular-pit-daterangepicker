@@ -32,6 +32,11 @@ function pitDrpParamsBuilder(){
       delete this.end;
       this.clean = true;
       return this;
+    },
+    withRanges: function(ranges){
+      this.otherRanges = true;
+      this.ranges = ranges;
+      return this;
     }
   };
 

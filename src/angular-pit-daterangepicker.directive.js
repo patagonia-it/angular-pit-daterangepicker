@@ -30,6 +30,12 @@ function pitDaterangepicker(pitDaterangepickerOptions){
         config.maxDate = scope.pitDrpParams.max;
       }
 
+      if(angular.isDefined(scope.pitDrpParams.otherRanges)){
+        if(scope.pitDrpParams.otherRanges == true){
+          config.ranges = scope.pitDrpParams.ranges;
+        }
+      }
+
       if((angular.isDefined(scope.pitDrpParams.clean) && scope.pitDrpParams.clean) || (angular.isUndefined(scope.pitDrpParams.start) || angular.isUndefined(scope.pitDrpParams.end))){
         config.autoUpdateInput = false;
 
