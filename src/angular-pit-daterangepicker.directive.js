@@ -69,9 +69,15 @@ function pitDaterangepicker(pitDaterangepickerOptions) {
       }
 
       if (angular.isDefined(scope.eventOn)) {
-        scope.$on(scope.eventOn, function (event, data) {
-          $(element).data('daterangepicker').setStartDate(data.start.format(config.locale.format));
-          $(element).data('daterangepicker').setEndDate(data.end.format(config.locale.format));
+        scope.$on(scope.eventOn, function (event, start, end) {
+          if (start !== undefined && end !== undefined) {
+            $(element).data('daterangepicker').setStartDate(moment(start).format(config.locale.format));
+            $(element).data('daterangepicker').setEndDate(moment(end).format(config.locale.format));
+          }else{
+            $(element).val('');
+            ngModel.$setViewValue({});
+          }
+
         });
       }
 
