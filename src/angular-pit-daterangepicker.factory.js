@@ -37,6 +37,11 @@ function pitDrpParamsBuilder(){
       this.otherRanges = true;
       this.ranges = ranges;
       return this;
+    },
+
+    withAutoUpdateInput: function (autoUpdateInput){
+      this.autoUpdateInput = autoUpdateInput;
+      return this;
     }
   };
 
