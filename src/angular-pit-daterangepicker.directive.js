@@ -50,6 +50,11 @@ function pitDaterangepicker(pitDaterangepickerOptions){
         });
       }
       $(element).daterangepicker(config);
+
+      if (scope.pitDrpParams.clean) {
+        $(element).val('');
+        ngModel.$setViewValue({});
+      }
     }
   };
 }
