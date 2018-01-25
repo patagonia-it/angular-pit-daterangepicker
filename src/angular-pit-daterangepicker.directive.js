@@ -32,7 +32,7 @@ function pitDaterangepicker(pitDaterangepickerOptions) {
       }
 
       if (angular.isDefined(scope.pitDrpParams.otherRanges)) {
-        if (scope.pitDrpParams.otherRanges == true) {
+        if (scope.pitDrpParams.otherRanges === true) {
           config.ranges = scope.pitDrpParams.ranges;
         }
       }
@@ -73,7 +73,7 @@ function pitDaterangepicker(pitDaterangepickerOptions) {
           if (start !== undefined && end !== undefined) {
             $(element).data('daterangepicker').setStartDate(moment(start).format(config.locale.format));
             $(element).data('daterangepicker').setEndDate(moment(end).format(config.locale.format));
-          }else{
+          } else {
             $(element).val('');
             ngModel.$setViewValue({});
           }
@@ -83,7 +83,12 @@ function pitDaterangepicker(pitDaterangepickerOptions) {
 
       $(element).daterangepicker(config);
 
-
+      if (scope.pitDrpParams.clean) {
+        $(element).val('');
+        scope.$apply(function () {
+          ngModel.$setViewValue({});
+        });
+      }
     }
   };
 }
