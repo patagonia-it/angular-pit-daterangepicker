@@ -60,11 +60,9 @@ function pitDaterangepicker(pitDaterangepickerOptions) {
             });
           });
         });
-        $(element).on('cancel.daterangepicker', function (ev, picker) {
+        scope.$on('cancel.daterangepicker', function (ev, picker) {
           $(element).val('');
-          scope.$apply(function () {
-            ngModel.$setViewValue({});
-          });
+          ngModel.$setViewValue({});
         });
       }
 
@@ -85,9 +83,7 @@ function pitDaterangepicker(pitDaterangepickerOptions) {
 
       if (scope.pitDrpParams.clean) {
         $(element).val('');
-        scope.$apply(function () {
-          ngModel.$setViewValue({});
-        });
+        ngModel.$setViewValue({});
       }
     }
   };
